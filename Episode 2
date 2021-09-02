@@ -1,0 +1,73 @@
+void main() {
+  
+  String name = 'David';
+  int davidCookies = 3;
+  int joeCookies = 7;
+  int courtneyCookies = 12;
+  
+  
+  // Arithmetic
+  print(davidCookies + joeCookies + courtneyCookies); // add
+  print(courtneyCookies - davidCookies); // subtract
+  print(5 * 13); // multiply
+  print(courtneyCookies / davidCookies); // divide
+  print((davidCookies + joeCookies + courtneyCookies) ~/ 3); // integer division
+  print((davidCookies + joeCookies + courtneyCookies) % 3); // modulo (remainder)
+  
+  davidCookies++; // increment (davidCookies = davidCookies + 1)
+  print(davidCookies);
+  
+  joeCookies--; // decrement
+  print(joeCookies);
+  print('');
+  
+  
+  // Relational
+  
+  print(davidCookies > joeCookies);
+  print(davidCookies < joeCookies);
+  print(davidCookies >= 4);
+  print(joeCookies <= 8);
+  print(courtneyCookies == 12);
+  print(courtneyCookies != 11);
+  print('');
+  
+  
+  // Logical
+  
+  print(name == 'David' && courtneyCookies >= 10);
+  print(name == 'David' || courtneyCookies < 10);
+  print( !(name == 'David' || courtneyCookies < 10) );
+  print('');
+  
+  
+  // Assignment
+  
+  num cookies = 5;
+  print(cookies);
+  
+  cookies += 3;  // cookies = cookies + 3;
+  print(cookies);
+  
+  cookies -= 3;
+  cookies *= 3;
+  cookies /= 3;
+  print(cookies);
+  
+  cookies ??= 10;
+  print(cookies);
+  print('');
+  
+  
+  // Ternary
+  
+  print(courtneyCookies >= 10 ? 'yes' : 'no');
+  
+  var x = null;
+  var y = 5;
+  
+  var z = x ?? y;
+  
+  print(z);
+  
+}
