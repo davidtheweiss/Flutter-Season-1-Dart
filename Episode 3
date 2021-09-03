@@ -1,0 +1,55 @@
+void main() {
+  List<Map<String, dynamic>> guestList = [
+    {'name': 'Courtney', 'attended': true, 'gift_enclosed': true},
+    {'name': 'Dillan', 'attended': true, 'gift_enclosed': false},
+    {'name': 'Bella', 'attended': true, 'gift_enclosed': false},
+    {'name': 'Nathan', 'attended': false, 'gift_enclosed': false},
+  ];
+
+  // for loop
+  for (int i = 0; i < guestList.length; i++) {
+    print('Thank you for coming to my birthday party ${guestList[i]['name']}');
+  }
+  print('');
+
+  
+  // for...in loop
+  for (Map guest in guestList) {
+    if (guest['attended'] && guest['gift_enclosed']) {
+      print('Thank you for coming to my birthday party, ${guest['name']}. You are very generous to have given me that wonderful gift and I appreciate it!');
+    } else if (guest['attended']) {
+      print('Thank you for coming to my birthday party ${guest['name']}');
+    } else {
+      continue;
+    }
+  }
+  print('');
+
+  
+  // while loop
+  while (guestList.isNotEmpty) {
+    print('Thank you for coming to my birthday party ${guestList[0]['name']}');
+    guestList.removeAt(0);
+  }
+  print('');
+  
+  
+  // do...while loop
+  bool success = false;
+  String response_code = '400';
+  int retries = 0;
+  do {
+    if (retries == 10) {
+      break;
+    }
+    if (response_code == '200') {
+      print('Sending out Thank You Notes');
+      success = true;
+    } else {
+      print('Error: message failed to send.');
+      retries++;
+    }
+  } while (!success);
+  print('');
+  print('Done');
+}
