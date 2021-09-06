@@ -1,0 +1,85 @@
+void main() {
+  
+  // Function, no Arguments
+  String sayHello() {
+    return "Hello, World!";
+  }
+  
+  print(sayHello());
+  
+  
+  // Function, Multiple Arguments
+  double triangleArea(num base, num height) {
+    double area = 0.5 * base * height;
+    return area;
+  }
+  
+  print(triangleArea(52, 93));
+  
+  
+  // Function, Optional Positional Arguments
+  bool makePurchase(int productID, [dynamic couponCode, dynamic addToNewsletter]) {
+    couponCode ??= '';
+    addToNewsletter ??= false;
+    bool success;
+    if (couponCode != '') {
+      print('Discounting Purchase');
+    }
+    print('Running $productID Payment Through Payment Processor');
+    success = true;
+    if (addToNewsletter) {
+      print('Adding Customer to Newsletter');
+    }
+    
+    return success;
+  }
+  
+  print(makePurchase(124532, 'PYB587'));
+  
+  
+  // Function, Optional Named Arguments
+  bool makePurchase2(int productID, {dynamic couponCode, dynamic addToNewsletter}) {
+    couponCode ??= '';
+    addToNewsletter ??= false;
+    bool success;
+    if (couponCode != '') {
+      print('Discounting Purchase');
+    }
+    print('Running $productID Payment Through Payment Processor');
+    success = true;
+    if (addToNewsletter) {
+      print('Adding Customer to Newsletter');
+    }
+    
+    return success;
+  }
+  
+  print(makePurchase2(928759, addToNewsletter: true,));
+  
+  
+  // Function, Optional Arguments with Default Values
+  bool makePurchase3(int productID, {dynamic couponCode, dynamic addToNewsletter = true}) {
+    couponCode ??= '';
+    addToNewsletter ??= false;
+    bool success;
+    if (couponCode != '') {
+      print('Discounting Purchase');
+    }
+    print('Running $productID Payment Through Payment Processor');
+    success = true;
+    if (addToNewsletter) {
+      print('Adding Customer to Newsletter');
+    }
+    
+    return success;
+  }
+  
+  print(makePurchase3(573925, couponCode: 'PYB587'));
+  
+  
+  // Lambda Functions (Arrow Functions) (One liners)
+  
+  triangleArea2(num base, num height) => 0.5 * base * height;
+  
+  print(triangleArea2(100, 100));
+}
