@@ -1,0 +1,26 @@
+import 'dart:html';
+import 'dart:convert';
+
+void main() async {
+  
+  Future<String> delayedHi() async {
+    String greeting = await Future.delayed(new Duration(seconds: 1), () => 'Hi');
+    print('Line 8');
+    return greeting;
+  }
+  
+  print(await delayedHi());
+  print('Line 13');
+  
+  Future<dynamic> getLocationFromZip(String zip) async {
+    dynamic response = await HttpRequest.getString('https://api.zippopotam.us/us/$zip');
+    dynamic json = jsonDecode(response);
+    String location = json['places'][0]['place name'];
+    print(location);
+    return response;
+  }
+  
+  print(await getLocationFromZip('48917'));
+  
+  print('Done');
+}
