@@ -1,0 +1,80 @@
+class Pez {
+  
+  // instance variables (fields, properties)
+  String? head;
+  String? color;
+  int _candyCount = 0;
+  
+  // Getter and Setter Functions
+  int get candyCount {
+    return _candyCount;
+  }
+  
+  void set candyCount(int candies) {
+    if (candies >= 0) {
+      _candyCount = candies;
+    } else {
+      print('You cannot add negative amounts of candies');
+    }
+  }
+  
+  // Constructor
+//   Pez(String head, String color, int candyCount) {
+//     this.head = head;
+//     this.color = color;
+//     this._candyCount = candyCount;
+//   }
+  
+  // Constructor Shorthand
+  Pez(this.head, this.color, this._candyCount);
+  
+  // Named Constructor
+  Pez.filled(this.head, this.color) : this._candyCount = 14;
+  
+  // Methods
+  void dispense() {
+    if (_candyCount == 0) {
+      print('No more candies in the Pez. Please refill.');
+    } else {
+      _candyCount--;
+      print('Here is you candy. There is now $_candyCount candies left.');
+    }
+  }
+  
+  void refill() {
+    _candyCount = 14;
+  }
+  
+}
+
+class SpecialEditionPez extends Pez {
+  String? voice;
+  
+  SpecialEditionPez(head, color, candyCount, this.voice) : super(head, color, candyCount);
+  
+  void speak() {
+    print('A Pez Candy for you, here is...');
+  }
+  
+  @override
+  void dispense() {
+    if (_candyCount == 0) {
+      print('No more candies in the Pez. Please refill.');
+    } else {
+      _candyCount -= 2;
+      print('Here is you candy. There are now $_candyCount candies left.');
+    }
+  }
+}
+
+void main() {
+  Pez myPez = new Pez('Tiger', 'Red', 0);
+  print(myPez.candyCount);
+  
+  Pez myFilledPez = new Pez.filled('Lion', 'Orange');
+  print(myFilledPez.candyCount);
+  
+  SpecialEditionPez yodaPez = new SpecialEditionPez('Alien', 'Green', 14, 'yoda');
+  yodaPez.dispense();
+  print(yodaPez._candyCount);
+}
